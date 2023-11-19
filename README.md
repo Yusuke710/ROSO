@@ -67,7 +67,7 @@ Credit: [Google](#acknowledgements).
 python cliport/eval_record.py model_task=multi-language-conditioned eval_task=packing-unseen-google-object agent=cliport mode=test n_demos=100 train_demos=1000 exp_folder=cliport_quickstart checkpoint_type=test_best update_results=True disp=False
 ```
 
-3. For the unsuccessful demos, edit observations using colab notebook (roso/roso_pipeline/ROSO_UnseenObj.ipynb). Edited images will automatically be stored it in (/data/edited_images). 
+3. For the unsuccessful demos, edit observations using colab notebook e.g. (https://github.com/Yusuke710/ROSO/blob/main/roso/ROSO_UnseenObj.ipynb). Edited images will automatically be stored it in (cliport/data/edited_images). 
 
 #directory structure should look like 
 ```
