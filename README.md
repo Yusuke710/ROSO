@@ -19,8 +19,6 @@ ROSO uses stable diffusion to pre-process a robot's observation of novel objects
 This novel paradigm allows us to transfer learned knowledge from known tasks to previously unseen scenarios, enhancing the robot's adaptability without requiring lengthy fine-tuning. 
 Our experiments show that incorporating generative AI into robotic inference significantly improves successful outcomes, finishing up to 57\% of tasks otherwise unsuccessful with the pre-trained policy.
 
-For a quick demo, please visit `roso/simple_run.ipynb`
-
 ## setup and installation
 Clone Repo:
 ```bash
@@ -32,8 +30,8 @@ Setup virtualenv and install requirements:
 cd ROSO/cliport
 
 # setup virtualenv 
-virtualenv -p $(which python3.8) --system-site-packages <your env name>  
-source <your env name>  /bin/activate
+virtualenv -p $(which python3.8) --system-site-packages <your env>  
+source <your env>/bin/activate
 
 # install dependencies
 pip install --upgrade pip
@@ -61,12 +59,15 @@ Credit: [Google](#acknowledgements).
 
 
 ## Run Inference 
-1. `python cliport/demos.py n=100 task=packing-unseen-google-object mode=test`    
-2. 
+1. Gather dataset to test CLIPort
+`python cliport/demos.py n=100 task=packing-unseen-google-object mode=test`    
+2. Evaluate CLIPort's policy on gathered dataset
+
 ```
 python cliport/eval_record.py model_task=multi-language-conditioned eval_task=packing-unseen-google-object agent=cliport mode=test n_demos=100 train_demos=1000 exp_folder=cliport_quickstart checkpoint_type=test_best update_results=True disp=False
 ```
-3. Edit images using colab notebook (notebooks/image_editing_pipeline/only_inpaint_frame.ipynb). Store it in (/data/edited_images). 
+
+3. For the unsuccessful demos, edit observations using colab notebook (roso/roso_pipeline/ROSO_UnseenObj.ipynb). Edited images will automatically be stored it in (/data/edited_images). 
 
 #directory structure should look like 
 ```
@@ -81,7 +82,7 @@ cliport
         └── metadata.csv
 ```
 
-4. 
+4. Run unsuccessful demos of CLIPort again with synthetic observations from ROSO
 ```
 python cliport/eval_editedimage.py model_task=multi-language-conditioned eval_task=packing-unseen-google-object agent=cliport mode=test n_demos=100 train_demos=1000 exp_folder=cliport_quickstart checkpoint_type=test_best update_results=True disp=False
 ```
