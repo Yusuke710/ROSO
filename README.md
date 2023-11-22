@@ -1,11 +1,6 @@
 # ROSO: Improving Robotic Policy Inference via Synthetic Observations
-The rest of the code coming up soon
 
-[Project Page](https://yusuke710.github.io/roso.github.io/)
-
-[Paper]() 
-
-[Video](https://yusuke710.github.io/roso.github.io/) 
+[Project Page](https://yusuke710.github.io/roso.github.io/) | [Paper]() | [Video](https://yusuke710.github.io/roso.github.io/) 
 
 <img src="abstract_figure.png" width="700">
 
@@ -38,7 +33,6 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 
-export PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python (#this will use pure-Python parsing and will be much slower)
 export CLIPORT_ROOT=$(pwd)
 python setup.py develop
 ```
@@ -58,18 +52,18 @@ sh scripts/google_objects_download.sh
 Credit: [Google](#acknowledgements).
 
 
-## Run Inference 
-1. Gather dataset to test CLIPort
-`python cliport/demos.py n=100 task=packing-unseen-google-object mode=test`    
+## How to Run 
+1. Gather dataset to test CLIPort. e.g. with 100 demos
+```
+python cliport/demos.py n=100 task=packing-unseen-google-object mode=test
+```
 2. Evaluate CLIPort's policy on gathered dataset
 
 ```
 python cliport/eval_record.py model_task=multi-language-conditioned eval_task=packing-unseen-google-object agent=cliport mode=test n_demos=100 train_demos=1000 exp_folder=cliport_quickstart checkpoint_type=test_best update_results=True disp=False
 ```
 
-3. For the unsuccessful demos, edit observations using colab notebook e.g. (https://github.com/Yusuke710/ROSO/blob/main/roso/ROSO_UnseenObj.ipynb). Edited images will automatically be stored it in (cliport/data/edited_images). 
-
-#directory structure should look like 
+3. For the unsuccessful demos, edit observations using colab notebook e.g. (https://github.com/Yusuke710/ROSO/blob/main/roso/ROSO_UnseenObj.ipynb). Then move the edited images(data/task_name/edited_images) on google drive to the local environment. The directory structure should look like 
 ```
 cliport
 └── data
