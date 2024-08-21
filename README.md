@@ -1,6 +1,8 @@
 # ROSO: Improving Robotic Policy Inference via Synthetic Observations
 
-[Project Page](https://yusuke710.github.io/roso.github.io/) | [Paper]() | [Video](https://yusuke710.github.io/roso.github.io/) 
+[ACRA 2023 Best Student Paper Nomination](https://www.araa.asn.au/conference/acra-2023/)
+
+[Project Page](https://yusuke710.github.io/roso.github.io/) | [Paper](https://arxiv.org/abs/2311.16680) | [Video](https://youtu.be/4EA-Et0h5nU?si=0nhwhw7e2gJQhZOw) 
 
 <img src="abstract_figure.png" width="700">
 
